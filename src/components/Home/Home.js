@@ -18,7 +18,7 @@ class Home extends Component {
   }
 
   async handleSearch() {
-    fetch("http://localhost:3001")
+    fetch("https://bibsense.herokuapp.com/")
       .then((response) => {
         if (!response.ok) {
           throw new Error(response.statusText);
