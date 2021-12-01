@@ -26,7 +26,7 @@ class BibDisplay extends Component {
     
       handleChange(event) {
         this.setState({ searchValue: event.target.value });
-        fetch("http://localhost:3001")
+        fetch("https://bibsense.herokuapp.com/:3001")
           .then((response) => {
             if (!response.ok) {
               throw new Error(response.statusText);
@@ -82,7 +82,7 @@ class BibDisplay extends Component {
        x == true ? (
      
       
-          fetch(`http://localhost:3001/${this.state.searchValue}`, {
+          fetch(`https://bibsense.herokuapp.com/${this.state.searchValue}`, {
             method: "GET",
           })
             .then((response) => {
