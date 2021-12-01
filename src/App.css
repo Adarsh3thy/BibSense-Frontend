@@ -9,7 +9,7 @@
 }
 
 .container-fluid {
-  background: #000 url(./public/images/backgroundIMG3.jpg);
+  background: #000 url(https://bibsens.herokuapp.com/backgroundIMG3.jpg);
  
   background-size: cover;
   color: #fff;
