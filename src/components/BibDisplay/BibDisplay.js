@@ -26,7 +26,7 @@ class BibDisplay extends Component {
     
       handleChange(event) {
         this.setState({ searchValue: event.target.value });
-        fetch("https://bibsense.herokuapp.com/:3001", { mode: 'cors' })
+        fetch("https://bibsense.herokuapp.com/", { mode: 'cors' })
           .then((response) => {
             if (!response.ok) {
               throw new Error(response.statusText);
