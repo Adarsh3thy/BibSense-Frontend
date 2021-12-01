@@ -26,7 +26,7 @@ class BibDisplay extends Component {
     
       handleChange(event) {
         this.setState({ searchValue: event.target.value });
-        fetch("https://bibsense.herokuapp.com/:3001")
+        fetch("https://bibsense.herokuapp.com/bib")
           .then((response) => {
             if (!response.ok) {
               throw new Error(response.statusText);
@@ -153,7 +153,7 @@ class BibDisplay extends Component {
                     <div className="column" key={index} accept=".png">
                     <img
                        className="single-img"
-                      src={`http://localhost:3000/images/${link.name}`}
+                      src={`https://bibsense.herokuapp.com/bib${link.name}`}
                     
                       alt="img-thumbnail" 
                       width="100%"/>
