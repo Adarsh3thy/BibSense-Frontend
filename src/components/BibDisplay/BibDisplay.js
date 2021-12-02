@@ -26,7 +26,7 @@ class BibDisplay extends Component {
     
       handleChange(event) {
         this.setState({ searchValue: event.target.value });
-        fetch("https://bibsense.herokuapp.com/bib")
+        fetch("https://bibsense.herokuapp.com")
           .then((response) => {
             if (!response.ok) {
               throw new Error(response.statusText);
@@ -65,8 +65,8 @@ class BibDisplay extends Component {
     
         console.log(x);
         // if (x == true) {
-        //   fetch(`http://localhost:3001/${this.state.searchValue}`, {
-        //     method: "GET",
+        //   fetch(`https://bibsense.herokuapp.com/${this.state.searchValue}`, {
+        //     method: "GET", {mode:'cors'}
         //   })
         //     .then((response) => {
         //       return response.json();
@@ -83,8 +83,8 @@ class BibDisplay extends Component {
      
       
           fetch(`https://bibsense.herokuapp.com/${this.state.searchValue}`, {
-            method: "GET",
-          })
+            method: "GET"
+          }, {mode:'cors'})
             .then((response) => {
               return response.json();
             })
@@ -153,7 +153,7 @@ class BibDisplay extends Component {
                     <div className="column" key={index} accept=".png">
                     <img
                        className="single-img"
-                      src={`https://bibsense.herokuapp.com/bib${link.name}`}
+                      src={`https://bibsense.herokuapp.com/bib${link.name}`, {mode:'cors'}}
                     
                       alt="img-thumbnail" 
                       width="100%"/>
