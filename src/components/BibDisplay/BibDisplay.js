@@ -153,7 +153,7 @@ class BibDisplay extends Component {
                     <div className="column" key={index} accept=".png">
                     <img
                        className="single-img"
-                      src={`http://localhost:3000/images/${link.name}`}
+                      src={require('./images/${link.name}')}
                     
                       alt="img-thumbnail" 
                       width="100%"/>
