@@ -8,8 +8,8 @@ class Navbar extends Component {
         {/* <nav className="justify-content-end navbar navbar-dark navbar-expand-sm bg-light">
           <ul className="navbar-nav"> */}
 
-        <nav id="navbar-example2" className="navbar navbar-dark bg-success ">
-          <h2 className="title">
+        <nav id="navbar-example2" fixed="top" className="navbar navbar-dark bg-secondary ">
+          <h2 style = {{color: "#1a1b1d" }}className="title">
 
 
 {/* 
@@ -28,9 +28,9 @@ class Navbar extends Component {
             BibSense
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="30"
-              height="25"
-              fill="currentColor"
+              width="40"
+              height="30"
+              fill="white"
               className="bi bi-camera"
               viewBox="0 0 16 16"
             >
@@ -39,25 +39,25 @@ class Navbar extends Component {
             </svg>
           </h2>
 
-          <ul className="nav nav-pills">
+          <ul  className="nav nav-pills">
             <li className="nav-item ">
               <NavLink className="btn btn-light btn-outline-secondary" to="/">
                 Home
               </NavLink>
             </li>
 
-            <li className="nav-item ">
+            {/* <li className="nav-item ">
               <NavLink
                 className="btn btn-light btn-outline-secondary "
                 to="/bib"
               >
                 Bib Number
               </NavLink>
-            </li>
+            </li> */}
 
             <li className="nav-item ">
               <NavLink
-                className="btn btn-light btn-outline-success "
+                className="btn btn-light btn-outline-secondary "
                 to="/about"
               >
                 About

@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import { Navigate, useHref } from "react-router";
-import { NavLink, Link, useNavigate } from "react-router-dom";
-import Home from "../Home/Home";
-import { Route, Routes } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+
 
 
 class BibDisplay extends Component {
@@ -18,6 +14,7 @@ class BibDisplay extends Component {
           imgFileName: "",
           img_name: [],
           img_links: [],
+          error: null
         };
     
         this.handleChange = this.handleChange.bind(this);
@@ -92,82 +89,95 @@ class BibDisplay extends Component {
               console.log(data.map((x) => x.name));
               console.log(data);
               this.setState({ img_name: data });
-              alert("congrats")
+              this.setState({error: null});
+            
               
             })
            
         
-            ) : alert("not working")
+            ) : this.setState({ error: "Please enter a correct bib number." })
+            console.log(this.state.error)
+      }
+
+      errorHandle() {
+        return (
+          <div style={{ color:"#fff", textAlign:"center" }}>{ <h1>error</h1> }</div>
+        )
       }
     
       render() {
-        const { runners, searchValue, img_name, name } = this.state;
+        const { runners, searchValue, img_name, name,error } = this.state;
     
         return (
           <>
-        
-    
-            
-            <div >
-                
-                <div >
-              <h3> Enter Bib number</h3>
-    
-              <form className="form" >
-                {/* <label> Bib number </label> */}
-                <input
-                  type="text"
-                  placeholder="Search bib number"
-                  value={this.state.searchValue}
-                  onChange={this.handleChange}
-                />
-              
-              
-              </form>
-              <button value="Submit" className="button" onClick={this.handleSearch}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-search"
-                  viewBox="0 0 16 16"
+            <div>
+              <div>
+                <h3 style={{ fontFamily: "Copperplate" }}>
+                  {" "}
+                  Enter your bib number
+                </h3>
+
+                <form className="form">
+                  {/* <label> Bib number </label> */}
+                  <input
+                    type="text"
+                    placeholder="Search bib number"
+                    value={this.state.searchValue}
+                    onChange={this.handleChange}
+                  />
+                </form>
+                <button
+                  value="Submit"
+                  className="button"
+                  onClick={this.handleSearch}
                 >
-                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                </svg>
-                Search
-              </button>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-search"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                  </svg>
+                  Search
+                </button>
               </div>
-    
-        </div>
-        
-        <div className="center">
-            {/* // images render  */}
-          
-              
+            </div>
+
+            <div className="center">
+              {/* // images render  */}
+
               {/* //</div> <div className="card-list">  */}
+
               <div className="row">
-                {this.state.img_name.map((link, index) => (
-    
-    
+                {this.state.error !== null ? (
+                  <div
+                    style={{
+                      color: "#000000",
+                      textAlign: "center",
+                      fontFamily: "Copperplate",
+                      fontSize: "25px",
+                    }}
+                  >
+                    {error}
+                  </div>
+                ) : (
+                  this.state.img_name.map((link, index) => (
                     <div className="column" key={index} accept=".png">
-                    <img
-                       className="single-img"
+                      <img
+                        className="single-img"
                       src={`https://bibsens.herokuapp.com/images/${link.name}`}
-                    
-                      alt="img-thumbnail" 
-                      width="100%"/>
-    
+                        alt="img-thumbnail"
+                        width="100%"
+                      />
                     </div>
-    
-                    
-                     ))}
-                     </div>
-                 </div>
-    
-             
-        </>
-         
+                  ))
+                )}
+              </div>
+            </div>
+          </>
         );
       }
     }
