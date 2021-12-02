@@ -9,7 +9,7 @@
 }
 
 .container-fluid {
-  background: #000 url(https://bibsens.herokuapp.com/backgroundIMG3.jpg);
+  background: #000 url(https://bibsens.herokuapp.com/images/backgroundIMG3.jpg);
  
   background-size: cover;
   color: #fff;
@@ -28,7 +28,7 @@
 
 
 .container-fluid2 {
-  background: #000 url(http://localhost:3000/images/backgroundIMG.jpg);
+  background: #000 url(https://bibsens.herokuapp.com/images/backgroundIMG3.jpg);
  
   background-size: cover;
   color: #fff;
